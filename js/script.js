@@ -19,7 +19,9 @@ const myApp = new Vue({
         }
       })
       .then((film) => {
+        this.films.splice(0,200)
         this.films.push(...film.data.results)
+        this.inputSearch=''
         console.log(film)
       })
     }
