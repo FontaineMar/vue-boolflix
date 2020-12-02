@@ -42,16 +42,17 @@ header img {
     flex-basis: 200px;
     padding: 20px;
     margin: 10px 20px;
-    height: 360px;
+    height: 470px;
     background: rgb(46, 58, 70);
     text-align: center;
+    overflow: auto;
 }
 
 .cd img {
     max-width: 100%;
 }
 
-.cd h2 {
+.cd > h4 {
     margin: 20px 0;
     color: white;
     font-size: 22px;
@@ -63,4 +64,6 @@ header img {
     font-size: 15px;
 }
 
-.cd >
+.first{
+  color:grey;
+}

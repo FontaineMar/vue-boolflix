@@ -7,7 +7,8 @@ const myApp = new Vue({
   el:'#root',
   data:{
     films:[],
-    inputSearch:''
+    inputSearch:'',
+    path:'https://image.tmdb.org/t/p/w500/'
   },
   methods:{
     searchFilm(){
