@@ -27,19 +27,30 @@
           </header>
         <div class="cds-container container">
           <div class="cd" v-for='film in films'>
-            <img :src="path + film.poster_path" alt="">
+            <img :src="pathImg + film.poster_path" alt="">
             <h4>{{film.title}}</h4>
             <div>
               <span class="first">Titolo originale:</span>
               <span class="original_title">{{film.original_title}}</span>
             </div>
-            <div>
-              <span class="lang first">Lingua:</span>
-              <span class="lang">{{film.original_language}}</span>
+            <div class=lang>
+              <span class="lang first">Lingua:</span> <br>
+              <span v-if="film.original_language == 'ja'"><img src="img/japan.png" alt=""></span>
+              <span v-else></span>
+              <span v-if="film.original_language == 'it'"><img src="img/italy.png" alt=""></span>
+              <span v-else></span>
+              <span v-if="film.original_language == 'en'"><img src="img/england.png" alt=""></span>
+              <span v-else></span>
+              <span v-if="film.original_language == 'fr'"><img src="img/france.png" alt=""></span>
+              <span v-else></span>
+              <span v-if="film.original_language == 'cn'"><img src="img/china.png" alt=""></span>
+              <span v-else></span>
+              <span v-if="film.original_language == 'nl'"><img src="img/netherlands.png" alt=""></span>
+              <span v-else></span>
             </div>
             <div>
-              <span class="first">Voto del publico:</span>
-              <span class="year">{{film.vote_average}}</span>
+              <span class="first">Voto del publico:</span><br>
+              <span v-for="film in numStar(film.vote_average)"><i class="fas fa-star"></i></span>
             </div>
           </div>
         </div>

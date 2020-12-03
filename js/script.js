@@ -8,22 +8,25 @@ const myApp = new Vue({
   data:{
     films:[],
     inputSearch:'',
-    path:'https://image.tmdb.org/t/p/w500/'
+    pathImg:'https://image.tmdb.org/t/p/w500/',
   },
   methods:{
     searchFilm(){
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params:{
           'api_key':'bc619d4b3b0d73040c2b1b6d3b761dd9',
-          'query': this.inputSearch
+          'query': this.inputSearch,
         }
       })
       .then((film) => {
-        this.films.splice(0,200)
+        this.films.splice(0,this.films.length)
         this.films.push(...film.data.results)
-        this.inputSearch=''
+        this.inputSearch='',
         console.log(film)
       })
-    }
+    },
+    numStar(n){
+      return Math.ceil(n / 2)
+    },
   }
 })
