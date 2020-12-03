@@ -21,27 +21,55 @@
     <div id="root">
       <div class="container">
           <header>
-            <img src="img/netflix.png" alt="logo" />
+            <img src="img/netflix.png" alt="logo">
             <input type="text" name="" v-model='inputSearch'>
             <button type="button" @click='searchFilm' name="button">Film</button>
-            <button type="button" @click='searchTvShow' name="button">serie Tv</button>
-
           </header>
         <div class="cds-container container">
-          <div class="cd" v-for='film in films'>
-            <img :src="pathImg + film.poster_path" alt="">
-            <h4>{{film.title}}</h4>
-            <div>
-              <span class="first">Titolo originale:</span>
-              <span class="original_title">{{film.original_title}}</span>
+          <div class="card">
+            <div class="">
+              <h2>Film</h2>
             </div>
-            <div class=lang>
-              <span class="lang first">Lingua:</span> <br>
-              <img :src="'img/'+ film.original_language +'.png'" alt="">
+            <div class="cd" v-for='film in films'>
+              <img :src="pathImg + film.poster_path" alt="">
+              <div class="none">
+                <h4>{{film.title}}</h4>
+                <div>
+                  <span class="first">Titolo originale:</span>
+                  <span class="original_title">{{film.original_title}}</span>
+                </div>
+                <div class=lang>
+                  <span class="lang first">Lingua:</span> <br>
+                  <img :src="'img/'+ film.original_language +'.png'" alt="">
+                </div>
+                <div>
+                  <span class="first">Voto del publico:</span><br>
+                  <span v-for="film in numStar(film.vote_average)"><i class="fas fa-star"></i></span>
+                </div>
+              </div>
             </div>
-            <div>
-              <span class="first">Voto del publico:</span><br>
-              <span v-for="film in numStar(film.vote_average)"><i class="fas fa-star"></i></span>
+          </div>
+          <div class="card">
+            <div class="">
+              <h2>Serie Tv</h2>
+            </div>
+            <div class="cd" v-for='tv in tvShows'>
+              <img :src="pathImg + tv.poster_path" alt="">
+              <div class="none">
+              <h4>{{tv.title}}</h4>
+                <div>
+                  <span class="first">Titolo originale:</span>
+                  <span class="original_title">{{tv.original_title}}</span>
+                </div>
+                <div class=lang>
+                  <span class="lang first">Lingua:</span> <br>
+                  <img :src="'img/'+ tv.original_language +'.png'" alt="">
+                </div>
+                <div>
+                  <span class="first">Voto del publico:</span><br>
+                  <span v-for="tv in numStar(tv.vote_average)"><i class="fas fa-star"></i></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
