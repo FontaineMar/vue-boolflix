@@ -35,18 +35,7 @@
             </div>
             <div class=lang>
               <span class="lang first">Lingua:</span> <br>
-              <span v-if="film.original_language == 'ja'"><img src="img/japan.png" alt=""></span>
-              <span v-else></span>
-              <span v-if="film.original_language == 'it'"><img src="img/italy.png" alt=""></span>
-              <span v-else></span>
-              <span v-if="film.original_language == 'en'"><img src="img/england.png" alt=""></span>
-              <span v-else></span>
-              <span v-if="film.original_language == 'fr'"><img src="img/france.png" alt=""></span>
-              <span v-else></span>
-              <span v-if="film.original_language == 'cn'"><img src="img/china.png" alt=""></span>
-              <span v-else></span>
-              <span v-if="film.original_language == 'nl'"><img src="img/netherlands.png" alt=""></span>
-              <span v-else></span>
+              <img :src="'img/'+ film.original_language +'.png'" alt="">
             </div>
             <div>
               <span class="first">Voto del publico:</span><br>

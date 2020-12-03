@@ -6,13 +6,16 @@
 const myApp = new Vue({
   el:'#root',
   data:{
+
+    tvShows:[],
     films:[],
     inputSearch:'',
     pathImg:'https://image.tmdb.org/t/p/w500/',
   },
   methods:{
     searchFilm(){
-      axios.get('https://api.themoviedb.org/3/search/movie', {
+      axios.get('https://api.themoviedb.org/3/search/movie',
+      {
         params:{
           'api_key':'bc619d4b3b0d73040c2b1b6d3b761dd9',
           'query': this.inputSearch,
@@ -24,9 +27,10 @@ const myApp = new Vue({
         this.inputSearch='',
         console.log(film)
       })
-    },
+      },
     numStar(n){
       return Math.ceil(n / 2)
     },
   }
+
 })
