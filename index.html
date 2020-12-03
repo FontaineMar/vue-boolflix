@@ -23,7 +23,9 @@
           <header>
             <img src="img/netflix.png" alt="logo" />
             <input type="text" name="" v-model='inputSearch'>
-            <button type="button" @click='searchFilm' name="button">Cerca</button>
+            <button type="button" @click='searchFilm' name="button">Film</button>
+            <button type="button" @click='searchTvShow' name="button">serie Tv</button>
+
           </header>
         <div class="cds-container container">
           <div class="cd" v-for='film in films'>
