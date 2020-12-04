@@ -8,10 +8,39 @@ const myApp = new Vue({
   data:{
     tvShows:[],
     films:[],
+    langNot:'img/noLang.png',
+    imgNot:'img/not.jpg',
     inputSearch:'',
     pathImg:'https://image.tmdb.org/t/p/w500/',
     urlTv:'https://api.themoviedb.org/3/search/tv',
     urlMovie:'https://api.themoviedb.org/3/search/movie'
+  },
+  created(){
+    axios.get(this.urlMovie,{
+      params:{
+        'api_key':'bc619d4b3b0d73040c2b1b6d3b761dd9',
+        'query': 'c',
+      }
+    })
+    .then((film) => {
+      this.films.splice(0,this.films.length)
+      this.films.push(...film.data.results)
+      console.log(film)
+    });
+    axios.get(this.urlTv,{
+      params:{
+        'api_key':'bc619d4b3b0d73040c2b1b6d3b761dd9',
+        'query': 'c',
+      }
+    })
+    .then((tv) => {
+      this.tvShows.splice(0,this.tvShows.length)
+      this.tvShows.push(...tv.data.results)
+      this.inputSearch='',
+      console.log(tv)
+    })
+
+
   },
   methods:{
     searchFilm(){
@@ -39,6 +68,12 @@ const myApp = new Vue({
         this.inputSearch='',
         console.log(tv)
       })
+    },
+    replaceByDefault(e){
+      e.target.src = this.imgNot
+    },
+    replaceByLangDefault(e){
+      e.target.src = this.langNot
     },
     numStar(n){
       return Math.ceil(n / 2)
